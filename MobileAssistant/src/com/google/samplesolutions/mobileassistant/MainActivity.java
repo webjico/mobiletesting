@@ -1,65 +1,86 @@
+/* Copyright (c) 2012 Google Inc.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 package com.google.samplesolutions.mobileassistant;
 
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.samplesolutions.mobileassistant.checkinendpoint.Checkinendpoint;
+import com.google.samplesolutions.mobileassistant.checkinendpoint.model.CheckIn;
+
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+
+import java.io.IOException;
+
 
 public class MainActivity extends Activity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+  
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    
+    new CheckInTask().execute();
 
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
-    }
+  }
+  
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.main, menu);
+    return true;
+  }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+  /**
+* AsyncTask for calling Mobile Assistant API for checking into a place (e.g., a store)
+*/
+  private class CheckInTask extends AsyncTask<Void, Void, Void> {
 
     /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
+* Calls appropriate CloudEndpoint to indicate that user checked into a place.
+*
+* @param params the place where the user is checking in.
+*/
+    @Override
+    protected Void doInBackground(Void... params) {
+      CheckIn checkin = new CheckIn();
+      
+      // Set the ID of the store where the user is.
+      // This would be replaced by the actual ID in the final version of the code.
+      checkin.setPlaceId("StoreNo123");
 
-        public PlaceholderFragment() {
-        }
+      Checkinendpoint.Builder builder = new Checkinendpoint.Builder(
+          AndroidHttp.newCompatibleTransport(), new JacksonFactory(),
+          null);
+          
+      builder = CloudEndpointUtils.updateBuilder(builder);
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
+      Checkinendpoint endpoint = builder.build();
+      
+
+      try {
+        endpoint.insertCheckIn(checkin).execute();
+      } catch (IOException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+
+      return null;
     }
-
+  }
 }

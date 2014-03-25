@@ -5,7 +5,7 @@
   <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
   <init-param>
    <param-name>services</param-name>
-   <param-value>com.google.samplesolutions.mobileassistant.DeviceInfoEndpoint,com.google.samplesolutions.mobileassistant.MessageEndpoint</param-value>
+   <param-value>com.google.samplesolutions.mobileassistant.CheckInEndpoint,com.google.samplesolutions.mobileassistant.DeviceInfoEndpoint,com.google.samplesolutions.mobileassistant.MessageEndpoint</param-value>
   </init-param>
  </servlet>
  <servlet-mapping>
