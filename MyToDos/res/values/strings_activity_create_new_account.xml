@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_activity_create_new_account">Create New User Account</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="save_button">Save</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="title_activity_display_todos">My Todos</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="create_new_account_confirmation">Welcome! Click on menu on upper right and select New to create your first todo.</string>
+	<string name="alert_title_name_required">Required</string>
+	<string name="alert_message_name_required">"Name fields must be filled!"</string>
+</resources>
