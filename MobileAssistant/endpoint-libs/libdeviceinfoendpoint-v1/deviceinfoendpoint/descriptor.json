@@ -1,13 +1,13 @@
 {
   "files": [
     {
-      "downloadUrl": "/downloads/deviceinfoendpoint/v1/20140325054519/java/1.16.0-rc/google.com-deviceinfoendpoint-v1-20140325054519-java-1.16.0-rc-sources.jar", 
-      "path": "google.com-deviceinfoendpoint-v1-20140325054519-java-1.16.0-rc-sources.jar", 
+      "downloadUrl": "/downloads/deviceinfoendpoint/v1/20140325060116/java/1.16.0-rc/google.com-deviceinfoendpoint-v1-20140325060116-java-1.16.0-rc-sources.jar", 
+      "path": "google.com-deviceinfoendpoint-v1-20140325060116-java-1.16.0-rc-sources.jar", 
       "type": "source", 
-      "timestamp": "2014-03-25 05:45"
+      "timestamp": "2014-03-25 06:01"
     }, 
     {
-      "path": "google.com-deviceinfoendpoint-v1-20140325054519-java-1.16.0-rc.jar.properties", 
+      "path": "google.com-deviceinfoendpoint-v1-20140325060116-java-1.16.0-rc.jar.properties", 
       "type": "android.properties"
     }
   ], 
@@ -23,7 +23,7 @@
   "maven": {
     "group_id": "com.google.apis", 
     "artifact_id": "google-api-services-samplesolutions-mobileassistant-deviceinfoendpoint", 
-    "version": "v1-rev20140325054519-1.16.0-rc"
+    "version": "v1-rev20140325060116-1.16.0-rc"
   }, 
   "dependencies": [
     {
@@ -702,5 +702,5 @@
   "packagePath": "samplesolutions.mobileassistant", 
   "language_version": "1.16.0-rc", 
   "id": "deviceinfoendpoint:v1", 
-  "revision": 20140325054519
+  "revision": 20140325060116
 }

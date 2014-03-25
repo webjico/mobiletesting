@@ -27,27 +27,6 @@
   "ownerName" : "google.com",
   "packagePath" : "samplesolutions.mobileassistant",
   "methods" : {
-    "checkinendpoint.removeCheckIn" : {
-      "path" : "checkin/{id}",
-      "httpMethod" : "DELETE",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ ],
-      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.google.samplesolutions.mobileassistant.CheckInEndpoint.removeCheckIn",
-      "request" : {
-        "parameters" : {
-          "id" : {
-            "type" : "int64",
-            "required" : true
-          }
-        },
-        "body" : "empty"
-      },
-      "response" : {
-        "body" : "empty"
-      }
-    },
     "checkinendpoint.getCheckIn" : {
       "path" : "checkin/{id}",
       "httpMethod" : "GET",
@@ -67,6 +46,27 @@
       },
       "response" : {
         "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "checkinendpoint.removeCheckIn" : {
+      "path" : "checkin/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.google.samplesolutions.mobileassistant.CheckInEndpoint.removeCheckIn",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
       }
     },
     "checkinendpoint.listCheckIn" : {
@@ -193,12 +193,12 @@
       }
     },
     "methods" : {
-      "com.google.samplesolutions.mobileassistant.CheckInEndpoint.removeCheckIn" : {
-      },
       "com.google.samplesolutions.mobileassistant.CheckInEndpoint.getCheckIn" : {
         "response" : {
           "$ref" : "CheckIn"
         }
+      },
+      "com.google.samplesolutions.mobileassistant.CheckInEndpoint.removeCheckIn" : {
       },
       "com.google.samplesolutions.mobileassistant.CheckInEndpoint.listCheckIn" : {
         "response" : {
