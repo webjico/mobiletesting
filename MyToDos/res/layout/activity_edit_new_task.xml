@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="left|center" >
+
+    <TextView
+        android:id="@+id/titlePlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="23dp"
+        android:text="Placeholder Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/todoSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/titlePlaceholder"
+        android:layout_below="@+id/titlePlaceholder"
+        android:ems="10"
+        android:hint="@string/new_todo_hint" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/todoDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/todoSubject"
+        android:layout_below="@+id/todoSubject"
+        android:ems="10"
+        android:enabled="false"
+        android:hint="@string/todo_due_date_hint"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/editNewSaveTodoBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/todoDesc"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="22dp"
+        android:onClick="OnClick_saveTodoBTN"
+        android:text="@string/save_button" />
+
+    <Button
+        android:id="@+id/editNewCancelBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/editNewSaveTodoBTN"
+        android:layout_alignBottom="@+id/editNewSaveTodoBTN"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="21dp"
+        android:onClick="OnClick_cancelBTN"
+        android:text="@string/cancel_button" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/todoDueDate"
+        android:layout_below="@+id/todoDueDate"
+        android:text="@string/priorityLBL"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RadioGroup
+        android:id="@+id/priorityRDO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/todoDesc"
+        android:layout_below="@+id/textView1" >
+
+        <RadioButton
+            android:id="@+id/lowPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lowPriorityLBL" />
+
+        <RadioButton
+            android:id="@+id/medPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/medPriorityLBL" />
+
+        <RadioButton
+            android:id="@+id/highPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/highPriorityLBL" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/todoDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_above="@+id/editNewSaveTodoBTN"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/priorityRDO"
+        android:ems="10"
+        android:gravity="top|left"
+        android:hint="@string/todo_description"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/pickDateBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/todoDueDate"
+        android:layout_below="@+id/todoSubject"
+        android:layout_toRightOf="@+id/todoSubject"
+        android:onClick="showDatePickerDialog"
+        android:text="@string/pickDate" />
+
+</RelativeLayout>
