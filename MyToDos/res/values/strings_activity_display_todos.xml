@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="action_add_new_task">New</string>
+    <string name="action_delete_task">Delete</string>
+    <string name="action_edit_task">Edit</string>
+    <string name="action_complete_task">Complete</string>
+    <string name="action_refresh">Refresh</string>
+        
+    <string name="list_header_due_date">Due Date</string>
+    <string name="list_header_priority">Priority</string>
+    <string name="list_header_subject">Subject</string>
+
+</resources>
