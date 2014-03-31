@@ -1,0 +1,16 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/todos_status_settings" >
+
+        <CheckBoxPreference
+            android:key="checkbox_preference_completed"
+            android:summary="@string/summary_checkbox_preference_completed"
+            android:title="@string/show_completed_todos" />
+
+        <CheckBoxPreference
+            android:key="checkbox_preference_incompleted"
+            android:summary="@string/summary_checkbox_preference_incompleted"
+            android:title="@string/show_incompleted_todos" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
