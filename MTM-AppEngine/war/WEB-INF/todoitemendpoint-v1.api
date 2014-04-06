@@ -1,0 +1,213 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://mytodos-p3.appspot.com/_ah/api",
+  "name" : "todoitemendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://mytodos-p3.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "example.com",
+  "ownerName" : "example.com",
+  "packagePath" : "cs6300todolist.entity",
+  "methods" : {
+    "todoitemendpoint.getToDoItem" : {
+      "path" : "todoitem/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.cs6300todolist.entity.ToDoItemEndpoint.getToDoItem",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "todoitemendpoint.removeToDoItem" : {
+      "path" : "todoitem/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.cs6300todolist.entity.ToDoItemEndpoint.removeToDoItem",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "int64",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "todoitemendpoint.insertToDoItem" : {
+      "path" : "todoitem",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.cs6300todolist.entity.ToDoItemEndpoint.insertToDoItem",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "todoitemendpoint.updateToDoItem" : {
+      "path" : "todoitem",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.cs6300todolist.entity.ToDoItemEndpoint.updateToDoItem",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "todoitemendpoint.listToDoItem" : {
+      "path" : "todoitem",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.cs6300todolist.entity.ToDoItemEndpoint.listToDoItem",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "ToDoItem" : {
+        "id" : "ToDoItem",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "userId" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "note" : {
+            "type" : "string"
+          },
+          "dueTime" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "checked" : {
+            "type" : "boolean"
+          },
+          "noDueTime" : {
+            "type" : "boolean"
+          },
+          "priority" : {
+            "type" : "string",
+            "format" : "int64"
+          }
+        }
+      },
+      "CollectionResponse_ToDoItem" : {
+        "id" : "CollectionResponse_ToDoItem",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "ToDoItem"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.example.cs6300todolist.entity.ToDoItemEndpoint.getToDoItem" : {
+        "response" : {
+          "$ref" : "ToDoItem"
+        }
+      },
+      "com.example.cs6300todolist.entity.ToDoItemEndpoint.removeToDoItem" : {
+      },
+      "com.example.cs6300todolist.entity.ToDoItemEndpoint.insertToDoItem" : {
+        "request" : {
+          "$ref" : "ToDoItem"
+        },
+        "response" : {
+          "$ref" : "ToDoItem"
+        }
+      },
+      "com.example.cs6300todolist.entity.ToDoItemEndpoint.updateToDoItem" : {
+        "request" : {
+          "$ref" : "ToDoItem"
+        },
+        "response" : {
+          "$ref" : "ToDoItem"
+        }
+      },
+      "com.example.cs6300todolist.entity.ToDoItemEndpoint.listToDoItem" : {
+        "response" : {
+          "$ref" : "CollectionResponse_ToDoItem"
+        }
+      }
+    }
+  }
+}
